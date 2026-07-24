@@ -72,3 +72,5 @@ int main()
 <img width="912" height="362" alt="image" src="https://github.com/user-attachments/assets/49aa7838-330c-455c-b5f5-2e9dc119302b" />
 
 ## RESULT
+Thus, the Vigenère Cipher substitution technique was successfully implemented
+using C language.
