@@ -30,7 +30,45 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
+int main()
+{
+    char plaintext[100], keyword[100], ciphertext[100];
+    int i, j = 0;
+
+    printf("Enter the Plain Text (in CAPITAL letters): ");
+    scanf("%s", plaintext);
+
+    printf("Enter the Keyword (in CAPITAL letters): ");
+    scanf("%s", keyword);
+
+    int keyLength = strlen(keyword);
+
+    for (i = 0; plaintext[i] != '\0'; i++)
+    {
+        char p = plaintext[i];
+        char k = keyword[j % keyLength];
+
+        /* Encryption Formula */
+        ciphertext[i] = ((p - 'A') + (k - 'A')) % 26 + 'A';
+
+        j++;
+    }
+
+    ciphertext[i] = '\0';
+
+    printf("\nPlain Text  : %s", plaintext);
+    printf("\nKeyword     : %s", keyword);
+    printf("\nCipher Text : %s\n", ciphertext);
+
+    return 0;
+}
+```
 ## OUTPUT
+<img width="912" height="362" alt="image" src="https://github.com/user-attachments/assets/49aa7838-330c-455c-b5f5-2e9dc119302b" />
 
 ## RESULT
