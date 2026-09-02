@@ -1,6 +1,7 @@
 # VIGENERE-CIPHER
 ## EX. NO: 4
- 
+## Name:Guru Prasad D.R.
+## Reg.NO:212225040104
 
 ## IMPLEMETATION OF VIGENERE CIPHER
  
@@ -37,7 +38,8 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 int main()
 {
-    char plaintext[100], keyword[100], ciphertext[100];
+    char plaintext[100], keyword[100];
+    char ciphertext[100], decryptedtext[100];
     int i, j = 0;
 
     printf("Enter the Plain Text (in CAPITAL letters): ");
@@ -48,12 +50,12 @@ int main()
 
     int keyLength = strlen(keyword);
 
+    /* Encryption */
     for (i = 0; plaintext[i] != '\0'; i++)
     {
         char p = plaintext[i];
         char k = keyword[j % keyLength];
 
-        /* Encryption Formula */
         ciphertext[i] = ((p - 'A') + (k - 'A')) % 26 + 'A';
 
         j++;
@@ -61,15 +63,32 @@ int main()
 
     ciphertext[i] = '\0';
 
-    printf("\nPlain Text  : %s", plaintext);
-    printf("\nKeyword     : %s", keyword);
-    printf("\nCipher Text : %s\n", ciphertext);
+    /* Decryption */
+    j = 0;
+
+    for (i = 0; ciphertext[i] != '\0'; i++)
+    {
+        char c = ciphertext[i];
+        char k = keyword[j % keyLength];
+
+        decryptedtext[i] = ((c - 'A') - (k - 'A') + 26) % 26 + 'A';
+
+        j++;
+    }
+
+    decryptedtext[i] = '\0';
+
+    printf("\nPlain Text      : %s", plaintext);
+    printf("\nKeyword         : %s", keyword);
+    printf("\nCipher Text     : %s", ciphertext);
+    printf("\nDecrypted Text  : %s\n", decryptedtext);
 
     return 0;
 }
+
 ```
 ## OUTPUT
-<img width="912" height="362" alt="image" src="https://github.com/user-attachments/assets/49aa7838-330c-455c-b5f5-2e9dc119302b" />
+<img width="712" height="395" alt="image" src="https://github.com/user-attachments/assets/26dbbf28-295f-4ccc-90a5-88dfac0e72d8" />
 
 ## RESULT
 Thus, the Vigenère Cipher substitution technique was successfully implemented
